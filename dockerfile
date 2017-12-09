@@ -9,4 +9,4 @@ RUN cd bytecoin-${bytecoinVersion}-linux && mv * .. && cd .. && rm -rf bytecoin-
 
 VOLUME [ "/root/.bytecoin" ]
 EXPOSE  8081
-CMD ["/usr/local/bin/bytecoind", "--config-file /root/.bytecoin/bytecoin.conf"]
+CMD ["bytecoind", "--config-file /root/.bytecoin/bytecoin.conf"]
