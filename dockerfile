@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-
+MAINTAINER Rafal Sladek rafal.sladek@gmail.com 
 ENV DAEMON_VERSION=3.0.2
 ENV DAEMON_ZIP=bytecoin-daemons-${DAEMON_VERSION}-linux64.zip
 ENV DAEMON_SRC=https://github.com/bcndev/bytecoin/releases/download/v${DAEMON_VERSION}/${DAEMON_ZIP}
