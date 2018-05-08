@@ -1,12 +1,24 @@
 FROM ubuntu:latest
-WORKDIR /usr/local/bin
-RUN apt-get update -y -qq && apt upgrade -y -qq
-RUN apt-get install -y -qq sudo curl git vim htop wget bzip2 screen
-ENV bytecoinVersion=2.1.2
-RUN wget https://bytecoin.org/storage/wallets/bytecoin_reference_client/bytecoin-${bytecoinVersion}-linux.tar.gz
-RUN tar -xvzf bytecoin-${bytecoinVersion}-linux.tar.gz && rm -f bytecoin-${bytecoinVersion}-linux.tar.gz
-RUN cd bytecoin-${bytecoinVersion}-linux && mv * .. && cd .. && rm -rf bytecoin-${bytecoinVersion}-linux
 
-VOLUME [ "/root/.bytecoin" ]
-EXPOSE  8081
-CMD ["bytecoind", "--config-file /root/.bytecoin/bytecoin.conf"]
+ENV DAEMON_VERSION=3.0.2
+ENV DAEMON_ZIP=bytecoin-daemons-${DAEMON_VERSION}-linux64.zip
+ENV DAEMON_SRC=https://github.com/bcndev/bytecoin/releases/download/v${DAEMON_VERSION}/${DAEMON_ZIP}
+
+RUN apt-get -yq update && \
+    apt-get -y upgrade && \
+    apt-get autoclean autoremove -yq && \
+    apt-get clean -yq
+
+RUN apt-get -y install tree wget unzip
+
+RUN cd /tmp && \
+    echo $DAEMON_SRC && \
+    wget -q $DAEMON_SRC && \
+    cd /usr/local/bin && \
+    unzip /tmp/${DAEMON_ZIP} && \
+    tree
+
+VOLUME [ "/root/.bytecoin" ]    
+EXPOSE  8081 8080
+
+CMD ["bytecoind"]
