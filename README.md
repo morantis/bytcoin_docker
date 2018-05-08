@@ -1,10 +1,9 @@
 # bytecoin-docker
-bytecoin daemon docker image
-
+This image use ubuntu 16.04 to run `bytecoin` daemon
 
 ## How to run the container
 ```
-docker run -d  -v ~/.bytecoin:/root/.bytecoin --restart unless-stopped -p 8080:8080 -p 8081:8081 --name bytecoin-fullnode rafalsladek/bytecoin-fullnode 
+docker run -d -v ~/.bytecoin:/root/.bytecoin --restart unless-stopped -p 8080:8080 -p 8081:8081 --name bytecoin-fullnode rafalsladek/bytecoin-docker 
 ```
 
 ## How to see logs of running the container
@@ -12,6 +11,10 @@ docker run -d  -v ~/.bytecoin:/root/.bytecoin --restart unless-stopped -p 8080:8
 docker logs bytecoin-fullnode --follow
 ```
 
+## How to attach to running the container
+```
+docker attach bytecoin-fullnode
+```
 
 # Docker - How to cleanup (unused) resources
 
