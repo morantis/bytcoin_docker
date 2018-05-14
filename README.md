@@ -3,7 +3,14 @@ This image use ubuntu 16.04 to run `bytecoin` daemon
 
 ## How to run the container
 ```
-docker run -d -v ~/.bytecoin:/root/.bytecoin --restart unless-stopped -p 8080:8080 -p 8081:8081 --name bytecoin-fullnode rafalsladek/bytecoin-docker 
+docker run -d \
+    -e TZ=Europe/Berlin \
+    -v ~/.bytecoin:/root/.bytecoin \
+    --restart unless-stopped \
+    -p 8080:8080 \
+    -p 8081:8081 \
+    --name bytecoin-fullnode \
+    rafalsladek/bytecoin-docker
 ```
 
 ## How to see logs of running the container
