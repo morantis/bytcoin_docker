@@ -8,4 +8,4 @@ docker build -f Dockerfile -t rafalsladek/$imageName:$tag .
 #docker run -it --rm  -v $(PWD)/.bytecoin:/root/.bytecoin -p 8080:8080 -p 8081:8081 rafalsladek/$imageName /bin/bash
 
 # run container forever
-#docker run -d -v $(PWD)/.bytecoin:/root/.bytecoin -p 8080:8080 -p 8081:8081 --name bytecoin-fullnode --restart unless-stopped rafalsladek/$imageName
+#docker run -d -v $(PWD)/.bytecoin:/root/.bytecoin -p 8080:8080 -p 8081:8081 --name $imageName --restart unless-stopped rafalsladek/$imageName
