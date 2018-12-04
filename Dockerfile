@@ -2,7 +2,7 @@ FROM ubuntu:latest
 LABEL Author="Rafal Sladek rafal.sladek@gmail.com"
 
 ENV TZ=Europe/Berlin
-ENV DAEMON_VERSION=3.0.2
+ENV DAEMON_VERSION=3.3.3
 ENV DAEMON_ZIP=bytecoin-daemons-${DAEMON_VERSION}-linux64.zip
 ENV DAEMON_SRC=https://github.com/bcndev/bytecoin/releases/download/v${DAEMON_VERSION}/${DAEMON_ZIP}
 
