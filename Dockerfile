@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-LABEL Author="Rafal Sladek rafal.sladek@gmail.com"
+
 
 ENV TZ=Europe/Berlin
 ENV DAEMON_VERSION=3.3.3
